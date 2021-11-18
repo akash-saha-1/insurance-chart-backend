@@ -24,7 +24,7 @@ app.use("/api/v1", insuranceRoutes);
 //database connection
 connection.connect((error) => {
   if (error) {
-    console.error("Error whil connecting to database due to " + error.message);
+    console.error("Error while connecting to database due to " + error);
   } else {
     //server starting
     app.listen(process.env.PORT);

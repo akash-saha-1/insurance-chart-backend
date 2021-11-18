@@ -6,7 +6,7 @@ const connection = require("../database/database");
 router.get("/", async (req, res) => {
   connection.query("select * from insurance", (error, rows, field) => {
     if (!!error) {
-      console.error("Error while executing get all query " + error.message);
+      console.error("Error while executing get all query " + error);
       return res.status(500).send("Error Occured");
     } else {
       return res.status(200).json({ data: rows });
@@ -27,7 +27,7 @@ router.get("/page/:id", async (req, res) => {
 
         if (!!error) {
           console.error(
-            "Error while executing get count query " + error.message
+            "Error while executing get count query " + error
           );
           return res.status(500).send("Error Occured");
         } else {
@@ -37,7 +37,7 @@ router.get("/page/:id", async (req, res) => {
             (error1, rows) => {
               if (!!error1) {
                 console.error(
-                  "Error while executing get page query " + error.message
+                  "Error while executing get page query " + error
                 );
                 return res.status(500).send("Error Occured");
               } else {
@@ -62,7 +62,7 @@ router.get("/:id", async (req, res) => {
       (error, rows) => {
         if (!!error) {
           console.error(
-            "Error while executing get by id query " + error.message
+            "Error while executing get by id query " + error
           );
           return res.status(500).send("Error Occured");
         } else {
@@ -84,7 +84,7 @@ router.put("/:id", async (req, res) => {
       (error, rows, field) => {
         if (!!error) {
           console.error(
-            "Error while executing get by id query " + error.message
+            "Error while executing get by id query " + error
           );
           return res.status(500).send("Error Occured");
         } else {
@@ -143,7 +143,7 @@ router.get("/search/:id", async (req, res) => {
       (error, rows) => {
         if (!!error) {
           console.error(
-            "Error while executing serch by id query " + error.message
+            "Error while executing serch by id query " + error
           );
           return res.status(500).send("Error Occured");
         } else {
@@ -156,7 +156,7 @@ router.get("/search/:id", async (req, res) => {
 
 setInterval(()=>{connection.query("select * from insurance", (error, rows, field) => {
     if (!!error) {
-      console.error("Error while executing auto query " + error.message);
+      console.error("Error while executing auto query " + error);
     } else {
       console.log("Auto query executed succesfully");
     }})},300000);
