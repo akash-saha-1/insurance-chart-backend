@@ -3,9 +3,9 @@ const morgan = require("morgan");
 const app = express();
 require("dotenv").config();
 const connection = require("./database/database");
-const bodyParser = require("body-parser");
 const cors = require("cors");
 const insuranceRoutes = require("./routes/insuranceRouter.js");
+const chartRoutes = require("./routes/chartRouter.js");
 
 // cors enable
 app.use(cors());
@@ -18,6 +18,7 @@ app.use(morgan("tiny"));
 app.use(express.json());
 
 //router links
+app.use("/api/v1/chart", chartRoutes);
 app.use("/api/v1", insuranceRoutes);
 
 //database connection
